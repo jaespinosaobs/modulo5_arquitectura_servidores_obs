@@ -1,0 +1,19 @@
+{
+  "name": "modulo5_arquitectura_servidores_obs",
+  "version": "1.0.0",
+  "description": "Repositorio de laboratorio para el módulo 5",
+  "main": "index.js",
+  "scripts": {
+    "test": "",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-obs:jaespinosaobs/modulo5_arquitectura_servidores_obs.git"
+  },
+  "author": "Jorge Espinosa",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
