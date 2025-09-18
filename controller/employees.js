@@ -1,30 +1,39 @@
-const employees = require('../data/employees.json');
+const dataEmployees = require('../data/employees.json');
 
-export function getAll() {
-    return employees;
+function getAll() {
+    return dataEmployees;
 }
 
-export function getPage(page) {
+function getPage(employees, page) {
     const indexStart = 2 * (page - 1);
     return employees.slice(indexStart, indexStart + 2);
 }
 
-export function getOldest() {
-    return employees.sort((employeeA, employeeB) => employeeA.age - employeeB.age)[0];
+function getOldest() {
+    const copyEmployees = JSON.parse(JSON.stringify(dataEmployees));
+    return copyEmployees.sort((employeeA, employeeB) => employeeB.age - employeeA.age)[0];
 }
 
-export function addEmployee(employee) {
+function addEmployee(employee) {
 
 }
 
-export function getUsers() {
+function filterUsers(employees) {
     return employees.filter(employee => employee.privileges === 'user');
 }
 
-export function getBlackBadgets() {
-    return employees.filter(employee => employee.badges.includes('black'));
+function filterBadges(employees, badge) {
+    return employees.filter(employee => employee.badges.includes(badge));
 }
 
-export function getEmployeeByName(name) {
-
+function getEmployeeByName(name) {
+    return dataEmployees.filter(employee => employee.name === name)[0];
 }
+
+module.exports.getAll = getAll;
+module.exports.getOldest = getOldest;
+module.exports.getPage = getPage;
+module.exports.addEmployee = addEmployee;
+module.exports.filterUsers = filterUsers;
+module.exports.filterBadges = filterBadges;
+module.exports.getEmployeeByName = getEmployeeByName;
